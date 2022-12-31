@@ -1,1 +1,1 @@
-# orthanc-on-azure
+# Orthanc on Azure
