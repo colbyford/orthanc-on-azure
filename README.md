@@ -8,4 +8,6 @@ This uses a base Orthanc Docker image from the Osimis team, which is then custom
 
 ## Docker Build Steps
 
+The Docker image will be built with environment variables and will need to be pushed to the Azure Container Registry.
+
 ## Terraform Steps
