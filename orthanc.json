@@ -1,0 +1,76 @@
+{
+    "PostgreSQL": {
+      "EnableSsl": true,
+      "Database": "<DATABASENAME>",
+      "IndexConnectionsCount": 10,
+      "Username": "<USERNAME>",
+      "Host": "<DATABASE>.postgres.database.azure.com",
+      "Port": 5432,
+      "EnableIndex": true,
+      "Password": "<DATABASEPASSWORD>",
+      "EnableStorage": false,
+      "Lock": false
+    },
+    "RegisteredUsers": {
+      "admin": "password"
+    },
+    "AzureBlobStorage": {
+      "ContainerName": "<BLOBCONTAINERNAME>",
+      "CreateContainerIfNotExists": true,
+      "ConnectionString": "DefaultEndpointsProtocol=https;AccountName=<STORAGEACCOUNTNAME>;AccountKey=<STORAGEACCOUNTKEY>;EndpointSuffix=core.windows.net"
+    },
+    "ExtraMainDicomTags": {
+      "Instance": [
+        "Rows",
+        "Columns",
+        "ImageType",
+        "SOPClassUID",
+        "ContentDate",
+        "ContentTime",
+        "FrameOfReferenceUID",
+        "PixelSpacing",
+        "SpecificCharacterSet",
+        "BitsAllocated",
+        "BitsStored"
+      ],
+      "Series": [
+        "TimezoneOffsetFromUTC",
+        "PerformedProcedureStepStartDate",
+        "PerformedProcedureStepStartTime",
+        "RequestAttributesSequence"
+      ],
+      "Study": [
+        "TimezoneOffsetFromUTC"
+      ],
+      "Patient": []
+    },
+    "OrthancExplorer2": {
+      "IsDefaultOrthancUI": true,
+      "Enable": true
+    },
+    "Name": "Orthanc",
+    "StorageDirectory": "/var/lib/orthanc/db",
+    "RemoteAccessAllowed": true,
+    "AuthenticationEnabled": true,
+    "HttpsCACertificates": "/etc/ssl/certs/ca-certificates.crt",
+    "Plugins": [
+      "/run/orthanc/plugins",
+      "/usr/share/orthanc/plugins"
+    ],
+    "DicomWeb": {
+      "Enable": true
+    },
+    "StoneWebViewer": {
+        "DownloadStudyEnabled" : true
+    },
+    "Gdcm": {
+      "Throttling": 4,
+      "RestrictTransferSyntaxes": [
+        "1.2.840.10008.1.2.4.90",
+        "1.2.840.10008.1.2.4.91",
+        "1.2.840.10008.1.2.4.92",
+        "1.2.840.10008.1.2.4.93"
+      ]
+    }
+  }
+  
