@@ -1,6 +1,6 @@
 # Orthanc on Azure
 
-The template repository deploys all the required Azure services to run the Orthanc DICOM viewer on Azure.
+This template repository deploys all the required Azure services to run the Orthanc DICOM viewer on Azure.
 
 This uses a base Orthanc Docker image from the Osimis team, which is then customized with environment variables to connect to the backend Azure resources.
 
@@ -38,5 +38,4 @@ docker push <CONTAINERREGISTRY>.azurecr.io/orthanc-viewer-001:latest
 ```
 
 You will need to restart the Web App in Azure so that it can pull the newly pushed image.
-
 
