@@ -3,7 +3,7 @@
       "EnableSsl": true,
       "Database": "<DATABASENAME>",
       "IndexConnectionsCount": 10,
-      "Username": "<USERNAME>",
+      "Username": "<USERNAME>@<HOSTNAME>",
       "Host": "<DATABASE>.postgres.database.azure.com",
       "Port": 5432,
       "EnableIndex": true,
