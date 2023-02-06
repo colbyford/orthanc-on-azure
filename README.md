@@ -1,4 +1,6 @@
-# Orthanc on Azure
+# 🩻 Orthanc on Azure ☁
+
+<h3 align="right">Colby T. Ford, Ph.D.</h3>
 
 This template repository deploys all the required Azure services to run the Orthanc DICOM viewer on Azure.
 
