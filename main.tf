@@ -54,6 +54,12 @@ resource "azurerm_storage_account" "storage" {
 }
 
 
+resource "azurerm_storage_container" "container" {
+  name                  = "data"
+  storage_account_name  = azurerm_storage_account.storage.name
+  container_access_type = "blob"
+}
+
 // PostgreSQL Database
 
 resource "azurerm_postgresql_server" "pgsql" {
@@ -105,6 +111,7 @@ resource "azurerm_linux_web_app" "app" {
 
 
   app_settings = {
+    WEBSITES_PORT                   = "8042"
     DOCKER_REGISTRY_SERVER_URL      = "${azurerm_container_registry.acr.login_server}"
     DOCKER_REGISTRY_SERVER_USERNAME = "${azurerm_container_registry.acr.admin_username}"
     DOCKER_REGISTRY_SERVER_PASSWORD = "${azurerm_container_registry.acr.admin_password}"
