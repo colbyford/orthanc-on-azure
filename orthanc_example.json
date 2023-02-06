@@ -1,0 +1,76 @@
+{
+    "PostgreSQL": {
+      "EnableSsl": true,
+      "Database": "orthancdb",
+      "IndexConnectionsCount": 10,
+      "Username": "psqladmin@orthanc-dev-270-psql",
+      "Host": "orthanc-dev-270-psql.postgres.database.azure.com",
+      "Port": 5432,
+      "EnableIndex": true,
+      "Password": "H@Sh1CoR3!",
+      "EnableStorage": false,
+      "Lock": false
+    },
+    "RegisteredUsers": {
+      "admin": "password"
+    },
+    "AzureBlobStorage": {
+      "ContainerName": "data",
+      "CreateContainerIfNotExists": true,
+      "ConnectionString": "DefaultEndpointsProtocol=https;AccountName=orthancdev270st;AccountKey=o9VcPnGWbUP1BTnAB5tD7Wo2d/o4QTdkgsoR+y0ZnJXLCzFXngpoJkasuJgJbnH8+90kYdM/EPgg+ASt7F+akQ==;EndpointSuffix=core.windows.net"
+    },
+    "ExtraMainDicomTags": {
+      "Instance": [
+        "Rows",
+        "Columns",
+        "ImageType",
+        "SOPClassUID",
+        "ContentDate",
+        "ContentTime",
+        "FrameOfReferenceUID",
+        "PixelSpacing",
+        "SpecificCharacterSet",
+        "BitsAllocated",
+        "BitsStored"
+      ],
+      "Series": [
+        "TimezoneOffsetFromUTC",
+        "PerformedProcedureStepStartDate",
+        "PerformedProcedureStepStartTime",
+        "RequestAttributesSequence"
+      ],
+      "Study": [
+        "TimezoneOffsetFromUTC"
+      ],
+      "Patient": []
+    },
+    "OrthancExplorer2": {
+      "IsDefaultOrthancUI": true,
+      "Enable": true
+    },
+    "Name": "Orthanc",
+    "StorageDirectory": "/var/lib/orthanc/db",
+    "RemoteAccessAllowed": true,
+    "AuthenticationEnabled": true,
+    "HttpsCACertificates": "/etc/ssl/certs/ca-certificates.crt",
+    "Plugins": [
+      "/run/orthanc/plugins",
+      "/usr/share/orthanc/plugins"
+    ],
+    "DicomWeb": {
+      "Enable": true
+    },
+    "StoneWebViewer": {
+        "DownloadStudyEnabled" : true
+    },
+    "Gdcm": {
+      "Throttling": 4,
+      "RestrictTransferSyntaxes": [
+        "1.2.840.10008.1.2.4.90",
+        "1.2.840.10008.1.2.4.91",
+        "1.2.840.10008.1.2.4.92",
+        "1.2.840.10008.1.2.4.93"
+      ]
+    }
+  }
+  
