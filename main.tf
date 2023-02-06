@@ -56,7 +56,7 @@ resource "azurerm_storage_account" "storage" {
 
 // PostgreSQL Database
 
-resource "azurerm_postgresql_server" "db" {
+resource "azurerm_postgresql_server" "pgsql" {
   name                = "${var.app_name}-${var.environment}-${random_integer.deployment_id_suffix.result}-psql"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
@@ -71,6 +71,14 @@ resource "azurerm_postgresql_server" "db" {
   public_network_access_enabled    = true
   ssl_enforcement_enabled          = true
   ssl_minimal_tls_version_enforced = "TLS1_2"
+}
+
+resource "azurerm_postgresql_database" "db" {
+  name                = "orthancdb"
+  resource_group_name = azurerm_resource_group.rg.name
+  server_name         = azurerm_postgresql_server.pgsql.name
+  charset             = "UTF8"
+  collation           = "English_United States.1252"
 }
 
 
