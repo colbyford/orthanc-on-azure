@@ -77,6 +77,8 @@ resource "azurerm_postgresql_server" "pgsql" {
   public_network_access_enabled    = true
   ssl_enforcement_enabled          = true
   ssl_minimal_tls_version_enforced = "TLS1_2"
+
+  tags = local.tags
 }
 
 resource "azurerm_postgresql_database" "db" {
@@ -86,6 +88,30 @@ resource "azurerm_postgresql_database" "db" {
   charset             = "UTF8"
   collation           = "English_United States.1252"
 }
+
+
+// Health Data Service and DICOM API
+
+resource "azurerm_healthcare_workspace" "hdsw" {
+  name                = "${var.app_name}-${var.environment}-${random_integer.deployment_id_suffix.result}-hdsw"
+  resource_group_name = azurerm_resource_group.rg.name
+  location            = azurerm_resource_group.rg.location
+
+  tags = local.tags
+}
+
+resource "azurerm_healthcare_dicom_service" "test" {
+  name         = "${var.app_name}-${var.environment}-${random_integer.deployment_id_suffix.result}-dicom"
+  workspace_id = azurerm_healthcare_workspace.hdsw.id
+  location     = azurerm_resource_group.rg.location
+
+  identity {
+    type = "SystemAssigned"
+  }
+
+  tags = local.tags
+}
+
 
 
 // App Service Plan
