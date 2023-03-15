@@ -33,7 +33,7 @@ In a few minutes, all of the services will be deployed. Once the deployment is c
 
 The Docker image will be built with environment variables and will need to be pushed to the Azure Container Registry. 
 
-First, you must modify the `orthanc.json` file in this repository with the credentials and keys from your Azure services that were just deployed. You can also add users to Orthanc in the `RegisteredUsers` section of the file.
+First, you must modify the `orthanc.json` file in this repository with the credentials and keys from your Azure services that were just deployed. You can also add users to Orthanc in the `RegisteredUsers` section of the JSON file.
 
 
 ### Build Dockerfile
