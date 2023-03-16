@@ -39,6 +39,8 @@ resource "azurerm_container_registry" "acr" {
   location            = azurerm_resource_group.rg.location
   sku                 = "Basic"
   admin_enabled       = true
+
+  tags = local.tags
 }
 
 // Storage Account
@@ -87,6 +89,8 @@ resource "azurerm_postgresql_database" "db" {
   server_name         = azurerm_postgresql_server.pgsql.name
   charset             = "UTF8"
   collation           = "English_United States.1252"
+
+  tags = local.tags
 }
 
 
