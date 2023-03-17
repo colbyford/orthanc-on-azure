@@ -29,11 +29,29 @@ terraform apply
 
 In a few minutes, all of the services will be deployed. Once the deployment is complete, navigate to [https://portal.azure.com](https://portal.azure.com) and locate your Resource Group (named something like `orthanc-dev-123-rg`).
 
+### Open Network for Database Access
+
+Once your PostgreSQL database has been deployed, navigate to its **Connection security** screen in Azure.
+
+Make sure the **Allow access to Azure services** setting is set to `Yes`. Also, you can add your home/office IP address to the firewall so that you can connect locally.
+
+![](img/pgsql_network.png)
+
 ## Docker Build Steps
 
 The Docker image will be built with environment variables and will need to be pushed to the Azure Container Registry. 
 
 First, you must modify the `orthanc.json` file in this repository with the credentials and keys from your Azure services that were just deployed. You can also add users to Orthanc in the `RegisteredUsers` section of the JSON file.
+
+Note: To generate the token needed for the Azure DICOM API, follow the instructions here: https://learn.microsoft.com/en-us/azure/healthcare-apis/get-access-token.
+
+```bash
+## From Azure CLI
+$token=$(az account get-access-token --resource=https://dicom.healthcareapis.azure.com --query accessToken --output tsv)
+curl -X GET --header "Authorization: Bearer $token"  https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com/v<version of REST API>/changefeed
+
+echo $token
+```
 
 
 ### Build Dockerfile
