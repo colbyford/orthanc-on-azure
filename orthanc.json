@@ -58,7 +58,16 @@
       "/usr/share/orthanc/plugins"
     ],
     "DicomWeb": {
-      "Enable": true
+      "Enable" : true,
+      "Root" : "/v1/",
+      "Servers" : {
+        "azure" : {
+          "Url": "https://<DICOMAPI>.dicom.azurehealthcareapis.com/v1/",
+          "HttpHeaders": {
+            "Authorization" : "Bearer <TOKEN>"
+          }
+        }
+      }
     },
     "StoneWebViewer": {
         "DownloadStudyEnabled" : true
