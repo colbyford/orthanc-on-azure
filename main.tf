@@ -89,32 +89,30 @@ resource "azurerm_postgresql_database" "db" {
   server_name         = azurerm_postgresql_server.pgsql.name
   charset             = "UTF8"
   collation           = "English_United States.1252"
-
-  tags = local.tags
 }
 
 
 // Health Data Service and DICOM API
 
-# resource "azurerm_healthcare_workspace" "hdsw" {
-#   name                = "${var.app_name}${var.environment}${random_integer.deployment_id_suffix.result}hdsw"
-#   resource_group_name = azurerm_resource_group.rg.name
-#   location            = azurerm_resource_group.rg.location
+resource "azurerm_healthcare_workspace" "hdsw" {
+  name                = "${var.app_name}${var.environment}${random_integer.deployment_id_suffix.result}hdsw"
+  resource_group_name = azurerm_resource_group.rg.name
+  location            = azurerm_resource_group.rg.location
 
-#   tags = local.tags
-# }
+  tags = local.tags
+}
 
-# resource "azurerm_healthcare_dicom_service" "dicom" {
-#   name         = "${var.app_name}-${var.environment}-${random_integer.deployment_id_suffix.result}-dicom"
-#   workspace_id = azurerm_healthcare_workspace.hdsw.id
-#   location     = azurerm_resource_group.rg.location
+resource "azurerm_healthcare_dicom_service" "dicom" {
+  name         = "${var.app_name}-${var.environment}-${random_integer.deployment_id_suffix.result}-dicom"
+  workspace_id = azurerm_healthcare_workspace.hdsw.id
+  location     = azurerm_resource_group.rg.location
 
-#   identity {
-#     type = "SystemAssigned"
-#   }
+  identity {
+    type = "SystemAssigned"
+  }
 
-#   tags = local.tags
-# }
+  tags = local.tags
+}
 
 
 
