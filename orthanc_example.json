@@ -3,8 +3,8 @@
       "EnableSsl": true,
       "Database": "orthancdb",
       "IndexConnectionsCount": 10,
-      "Username": "psqladmin@orthanc-dev-931-psql",
-      "Host": "orthanc-dev-931-psql.postgres.database.azure.com",
+      "Username": "psqladmin@orthanc-dev-854-psql",
+      "Host": "orthanc-dev-854-psql.postgres.database.azure.com",
       "Port": 5432,
       "EnableIndex": true,
       "Password": "H@Sh1CoR3!",
@@ -17,7 +17,7 @@
     "AzureBlobStorage": {
       "ContainerName": "data",
       "CreateContainerIfNotExists": true,
-      "ConnectionString": "DefaultEndpointsProtocol=https;AccountName=orthancdev931st;AccountKey=c0BcKpXeeo4tlT+b9NMrMRnBg6VCrFGZv6yXTaXfwq7t3HwTo6qhfQ27F5QG5D8bs+/u/yNHxWGS+ASteY0bwQ==;EndpointSuffix=core.windows.net"
+      "ConnectionString": "DefaultEndpointsProtocol=https;AccountName=orthancdev854st;AccountKey=W9wRJqjy3vjXnEfJdBonYbpwfEsXcoIskhH/cHGTxVMGK782Iv/T4tC5h0B0xSarlOOQ5yatGNc4+AStjz8NUQ==;EndpointSuffix=core.windows.net"
     },
     "ExtraMainDicomTags": {
       "Instance": [
@@ -58,9 +58,15 @@
       "/usr/share/orthanc/plugins"
     ],
     "DicomWeb": {
-      "Enable": true,
+      "Enable" : true,
+      "Root" : "/v1/",
       "Servers" : {
-        "azure": ["https://orthancdev931hdsw-orthanc-dev-931-dicom.dicom.azurehealthcareapis.com"]
+        "azure" : {
+          "Url": "https://orthancdev854hdsw-orthanc-dev-854-dicom.dicom.azurehealthcareapis.com/v1/",
+          "HttpHeaders": {
+            "Authorization" : "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ii1LSTNROW5OUjdiUm9meG1lWm9YcWJIWkdldyIsImtpZCI6Ii1LSTNROW5OUjdiUm9meG1lWm9YcWJIWkdldyJ9.eyJhdWQiOiJodHRwczovL2RpY29tLmhlYWx0aGNhcmVhcGlzLmF6dXJlLmNvbSIsImlzcyI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2UzNDliZDU3LTJjNWMtNDk5OC1iOWQ4LWY3MTlhZTQ3ZGNkZS8iLCJpYXQiOjE2NzkwMTUyMjksIm5iZiI6MTY3OTAxNTIyOSwiZXhwIjoxNjc5MDE5MTI5LCJhaW8iOiJFMlpnWUpCWnhMWmQ1NWdRejYyei9YcmZsdGZ6QWdBPSIsImFwcGlkIjoiNjJhM2Q5N2YtNzlhZi00YjIzLTk3OTUtNzJlODIxODExNjRhIiwiYXBwaWRhY3IiOiIxIiwiaWRwIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvZTM0OWJkNTctMmM1Yy00OTk4LWI5ZDgtZjcxOWFlNDdkY2RlLyIsIm9pZCI6Ijg4ZGUxMTc5LTkyNWQtNDExYi04M2RjLTgxYmY1NDg4YzIwYSIsInJoIjoiMC5BVFVBVjcxSjQxd3NtRW01MlBjWnJrZmMzcjhsNTNYT1p1cE1tNXBjVEtybGZ6TTFBQUEuIiwic3ViIjoiODhkZTExNzktOTI1ZC00MTFiLTgzZGMtODFiZjU0ODhjMjBhIiwidGlkIjoiZTM0OWJkNTctMmM1Yy00OTk4LWI5ZDgtZjcxOWFlNDdkY2RlIiwidXRpIjoiRm5uVGRBQVhwRS1FdU90bFl0U0pBQSIsInZlciI6IjEuMCJ9.FwBKj6eqhFG3om3xt1Ob4JA8YPvyVfzBpAkeBC3iRP2IP67EoOcw65sZJVyd6xakqXvxc2xtlFod9Rt6YIk35Xlz1o0u8bdJwJ3cMGkx4L_IQZiQeb3uxFMgn98-5EkuIVJQVDS8OJTtiQkWgMsVZht_U03KL_7YLoC-KWdxkTI8onaLlJl3tay7-yQ5iBLyNZPPdNtHYFnP3L5CgK0HXj9Y1M4WjgVsNgKdM7N-fswvsshc4eaFwYyITeoHZHVKozxD92DUe7gURo4ue4vvUvkkWvltL68vL70Hb9j77A5GRvth1M9SgtD2lXgrxiC2Xz1UGkifNh2gjLcJj9tunQ"
+          }
+        }
       }
     },
     "StoneWebViewer": {
