@@ -137,7 +137,6 @@ resource "azurerm_linux_web_app" "app" {
   resource_group_name = azurerm_resource_group.rg.name
   service_plan_id     = azurerm_service_plan.asp.id
 
-
   app_settings = {
     WEBSITES_PORT                   = "8042"
     DOCKER_REGISTRY_SERVER_URL      = "${azurerm_container_registry.acr.login_server}"
