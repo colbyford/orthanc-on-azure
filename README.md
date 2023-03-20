@@ -1,4 +1,4 @@
-# 🩻 Orthanc on Azure ☁
+# Orthanc on Azure
 
 <h3 align="right">Colby T. Ford, Ph.D.</h3>
 
